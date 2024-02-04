@@ -3,21 +3,15 @@
 #show: uit_template.with(
   title: [Assignment template using IEEEtran.cls for IEEE Journals and Transactions],
   abstract: [
-    This document describes the most common article elements and how to use the
-    IEEEtran class with Typst to produce files that are suitable for submission to
-    the IEEE. IEEEtran can produce conference, journal, and technical note
-    (correspondence) papers with a suitable choice of class options. This template
-    is meant as a general guideline on how to write a report, and to give some tips
-    about what you should and should not be writing. You may move or cut sections
-    depending on the assignment or your needs.
+    This document presents a number of guidelines to use when writing a report for assignments at UiT and may serve as a template for how to write it using Typst for typesetting. The template is meant to give some general tips on what you should and should not be writing in your report. You may move or cut sections and/or subsections depending on the given assignment or your needs.
 
-    While writing this report template, I enjoyed reading Michael Alley's "The Craft
-    of Scientific Writing'. I recommend having it by your side when you are stuck
-    writing- it happens to all of us @AlleyMichael2018TCoS.
+    While writing this report template, I enjoyed reading Michael Alley's "The Craft of Scientific Writing". I recommend having it by your side when you are stuck writing- it happens to all of us @AlleyMichael2018TCoS.
 
     #v(12pt)
 
     Make sure you clean up the template text before submitting your report. ;)
+
+    #v(12pt)
   ],
   header: [INF-XXXX Assignment X #datetime.today().display()],
   authors: ((
