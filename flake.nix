@@ -27,7 +27,11 @@
         default = pkgs.mkShell {
           # Pinned packages available in the environment
           packages = with pkgs; [
+            # Nix formatter
             alejandra
+            # Typo checker
+            typos
+            # Typst LSP and Formatter
             typst
             typst-lsp
             typstfmt

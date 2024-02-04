@@ -64,3 +64,11 @@ If you prefer an Overleaf-like experience with autocompletion, preview and (soon
 
 > [!NOTE]
 > You can select multiple files to import at the same time. The editor will import and arrange all the files accordingly. Watch out if your figures are in a directory, the may end up in root.
+
+# Resources 
+
+Other resources that may be helpful to new and experienced Typsters alike.
+
+- [Typst Guide for LaTeX Users](https://typst.app/docs/guides/guide-for-latex-users/)
+- [Typst Documentation](https://typst.app/docs/)
+

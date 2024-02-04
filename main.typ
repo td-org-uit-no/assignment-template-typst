@@ -16,14 +16,14 @@
   header: [INF-XXXX Assignment X #datetime.today().display()],
   authors: ((
     name: "Firstname Middlename(s) Lastname",
-    organization: [UiT Artic University of Tromsø],
+    organization: [UiT Arctic University of Tromsø],
     location: [Tromsø, Norway],
     email: "abc123@uit.no",
     git: "abc",
   ),
   (
     name: "Firstname Middlename(s) Lastname",
-    organization: [UiT Artic University of Tromsø],
+    organization: [UiT Arctic University of Tromsø],
     location: [Tromsø, Norway],
     email: "def456@uit.no",
     git: "def",
