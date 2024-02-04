@@ -1,7 +1,7 @@
 #import "template.typ": *
 #import "@preview/tablex:0.0.8": tablex, rowspanx, colspanx
 #show: uit_template.with(
-  title: [Assignment template using IEEEtran.cls for IEEE Journals and Transactions],
+  title: [Assignment template using IEEE-style for Journals and Transactions],
   abstract: [
     This document describes the most common article elements and how to use the
     IEEEtran class with Typst to produce files that are suitable for submission to
@@ -25,6 +25,7 @@
     organization: [UiT Artic University of Tromsø],
     location: [Tromsø, Norway],
     email: "abc@uit.no",
+    git: "abc",
   ),),
   index-terms: (
     "Assignment submission",
@@ -120,16 +121,20 @@ address space while still ensuring that no other processes can access its data
 Using figures in technical backgrounds is encouraged. Usually you want to have
 figures/images as scalable vector graphics\(svg),especially for your graphs, but
 sometimes that is not doable and you can use i.e. portable network
-graphics\(png) or similar. The following snippet shows how to import figures.
+graphics\(png) or similar.
+
+#v(12pt)
+
+The following snippet shows how to import figures.
 
 #figure(
-  image("figures/jetson_nx.png", width: 80%),
+  image("figures/jetson_nx.png", width: 89%),
   caption: [Block diagram of the Jetson Xavier NX],
 ) <fig:block_diagram>
 
 #figure(
-  image("figures/NVSD_VDD_IN.svg", width: 80%),
-  caption: [Total power consumption compared between NAS and SD-Card. _Note_ the
+  image("figures/NVSD_VDD_IN.svg", width: 89%),
+  caption: [Total power consumption compared between NAS and SD-Card. / _Note_ the
     NAS-experiment did not complete in time, and the measurements for the NAS is fit
     to the SD-card measurements],
 ) <fig:local_nas_sd_compare>
@@ -210,7 +215,8 @@ You should present the results of your tests here, either using an illustration
 and/or a table of results. These will be valuable in the discussion section. The
 following is an example for how to format a table of results in Typst.
 
-// TODO: Table here
+#v(12pt)
+
 #figure(
   tablex(
     columns: 7,
