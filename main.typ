@@ -51,7 +51,7 @@ There are many opinions on first person speaking when writing a technical report
 + An objective report is good at:
   - Emphasizing your work
 
-It's not uncommon to mix these in your reports, and people like Einstein,Feynman, and Curie frequently used both forms in their texts.
+It's not uncommon to mix these in your reports, and people like Einstein, Feynman, and Curie frequently used both forms in their texts.
 
 #v(12pt)
 
@@ -212,7 +212,7 @@ Here is an example of a discussion subsection:
 
 == Recovery of a simulated crash <subsec:recovery_simulated_crash>
 
-When a node recovers from a simulated crash, it will check if it's neighbors is still connected to it. If not, it will try and start an internal join to its previous successor. This works as long as the previous successor is still active in the network. The case where the previous successor is not active, is not dealt with, and will result in the node not being able to recover.
+When a node recovers from a simulated crash, it will check if its neighbors are still connected to it. If not, it will try to start an internal join to its previous successor. This works as long as the previous successor is still active in the network. The case where the previous successor is not active is not dealt with, and will result in the node not being able to recover.
 
 = Conclusion <sec:conclusion>
 
