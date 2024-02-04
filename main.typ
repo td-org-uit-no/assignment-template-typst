@@ -1,7 +1,7 @@
 #import "template.typ": *
 #import "@preview/tablex:0.0.8": tablex, rowspanx, colspanx
 #show: uit_template.with(
-  title: [Assignment template using IEEEtran.cls for IEEE Journals and Transactions],
+  title: [Assignment template using IEEE-style for Journals and Transactions],
   abstract: [
     This document presents a number of guidelines to use when writing a report for assignments at UiT and may serve as a template for how to write it using Typst for typesetting. The template is meant to give some general tips on what you should and should not be writing in your report. You may move or cut sections and/or subsections depending on the given assignment or your needs.
 
@@ -16,17 +16,17 @@
   header: [INF-XXXX Assignment X #datetime.today().display()],
   authors: ((
     name: "Firstname Middlename(s) Lastname",
-    department: [IFI],
-    organization: [UiT],
+    organization: [UiT Artic University of Tromsø],
     location: [Tromsø, Norway],
     email: "abc123@uit.no",
+    git: "abc",
   ),
   (
     name: "Firstname Middlename(s) Lastname",
-    department: [IFI],
-    organization: [UiT],
+    organization: [UiT Artic University of Tromsø],
     location: [Tromsø, Norway],
     email: "def456@uit.no",
+    git: "def",
   ),),
   index-terms: (
     "Assignment submission",
@@ -94,16 +94,20 @@ The basic concept of virtual memory is that you map the virtual address the proc
 
 #v(12pt)
 
-Using figures in technical backgrounds is encouraged. Usually you want to have figures/images as scalable vector graphics\(svg),especially for your graphs, but sometimes that is not doable and you can use i.e. portable network graphics\(png) or similar. The following snippet shows how to import figures.
+Using figures in technical backgrounds is encouraged. Usually you want to have figures/images as scalable vector graphics\(svg),especially for your graphs, but sometimes that is not doable and you can use i.e. portable network graphics\(png) or similar.
+
+#v(12pt)
+
+The following snippet shows how to import figures.
 
 #figure(
-  image("figures/jetson_nx.png", width: 80%),
+  image("figures/jetson_nx.png", width: 89%),
   caption: [Block diagram of the Jetson Xavier NX],
 ) <fig:block_diagram>
 
 #figure(
-  image("figures/NVSD_VDD_IN.svg", width: 80%),
-  caption: [Total power consumption compared between NAS and SD-Card. _Note_ the NAS-experiment did not complete in time, and the measurements for the NAS is fit to the SD-card measurements],
+  image("figures/NVSD_VDD_IN.svg", width: 89%),
+  caption: [Total power consumption compared between NAS and SD-Card. / _Note_ the NAS-experiment did not complete in time, and the measurements for the NAS is fit to the SD-card measurements],
 ) <fig:local_nas_sd_compare>
 
 = Design <sec:design>
@@ -148,6 +152,8 @@ A core pillar of computer science is testing. In this section, you should includ
 
 You should present the results of your tests here, either using an illustration and/or a table of results. These will be valuable in the discussion section. The following is an example for how to format a table of results in Typst.
 
+#v(12pt)
+
 #figure(
   tablex(
     columns: 7,
@@ -156,6 +162,7 @@ You should present the results of your tests here, either using an illustration 
     rowspanx(2)[Classifier],
     colspanx(6)[Precision],
     /* -------------- */
+    /* --- body --- */
     [1],
     [2],
     [3],
@@ -190,6 +197,7 @@ You should present the results of your tests here, either using an illustration 
     0.53,
     0.54,
     0.53,
+    /* -------------- */
   ),
   caption: [Precision results of classifiers for different feature sets],
 )
@@ -209,6 +217,3 @@ When a node recovers from a simulated crash, it will check if it's neighbors is 
 = Conclusion <sec:conclusion>
 
 Here you sum up the report and reiterate the results. Does not need to be very long, a few sentences is fine.
-
-Use $without$`appendix` if you have a single appendix: Do not use $without$`section` anymore after $without$`appendix`, only $without$`section*`. If you have multiple appendixes use $without$`appendices` then use $without$`section` to start each appendix. You must declare a $without$`section` before using any $without$`subsection` or using $without$`label` ($without$`appendices` by itself starts a section numbered zero.)
-

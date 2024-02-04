@@ -25,12 +25,13 @@
   set document(title: title, author: authors.map(author => author.name))
 
   // Set the body font.
+  // set text(font: "Times New Roman", size: 10pt)
+  // set text(font: "New Computer Modern", size: 10pt)
   set text(font: "STIX Two Text", size: 10pt)
 
   // Configure the page.
   set page(
     paper: paper-size,
-    header: header,
     // The margins depend on the paper size.
     margin: if paper-size == "a4" {
       (x: 41.5pt, top: 80.51pt, bottom: 89.51pt)
@@ -41,11 +42,43 @@
         bottom: (64pt / 279mm) * 100%,
       )
     },
+    header: header,
+    // Show copyright only ont the first page
+    footer: locate(loc => {
+      let page-counter = counter(page)
+      if page-counter.at(loc).first() == 1 [
+        #set align(center)
+        #set text(8pt)
+        979-8-3503-2934-6/23/\$31.00 ©2023 IEEE
+      ]
+    }),
   )
 
   // Configure equation numbering and spacing.
-  set math.equation(numbering: "(1)")
+  set math.equation(numbering: "(1)", supplement: [])
   show math.equation: set block(spacing: 0.65em)
+
+  // Configure figures and tables.
+  set figure(supplement: [])
+  show figure: it => {
+    set text(8pt)
+    set align(center)
+    if it.kind == image [
+      #box[
+        #it.body
+        #v(10pt, weak: true)
+        Fig#it.caption
+      ]
+    ] else if it.kind == table [
+      #box[
+        Table#it.caption
+        #v(10pt, weak: true)
+        #it.body
+      ]
+    ] else [
+      ...
+    ]
+  }
 
   // Configure appearance of equation references
   show ref: it => {
@@ -60,6 +93,10 @@
       it
     }
   }
+
+  // Configure Tables
+  // set table(stroke: 0.5pt)
+  // show table: set text(8pt)
 
   // Configure lists.
   set enum(indent: 10pt, body-indent: 9pt)
@@ -114,14 +151,14 @@
 
   // Display the paper's title.
   v(3pt, weak: true)
-  align(center, text(18pt, title))
+  align(center, text(22pt, title))
   v(8.35mm, weak: true)
 
   // Display the authors list.
-  for i in range(calc.ceil(authors.len() / 3)) {
-    let end = calc.min((i + 1) * 3, authors.len())
+  for i in range(calc.ceil(authors.len() / 4)) {
+    let end = calc.min((i + 1) * 4, authors.len())
     let is-last = authors.len() == end
-    let slice = authors.slice(i * 3, end)
+    let slice = authors.slice(i * 4, end)
     grid(
       columns: slice.len() * (1fr,),
       gutter: 12pt,
@@ -139,6 +176,9 @@
         if "email" in author [
           \ #link("mailto:" + author.email)
         ]
+        if "git" in author [
+          \ #author.git
+        ]
       })),
     )
 
@@ -155,10 +195,13 @@
 
   // Display abstract and index terms.
   if abstract != none [
-    #set text(weight: 700)
+    // #set par(leading: 0.5em)
+    #set text(weight: 700, size: 9pt)
     #h(1em) _Abstract_---#abstract
 
     #if index-terms != () [
+      #v(9pt)
+      #set text(weight: 700, size: 9pt, style: "italic")
       #h(1em)_Index terms_---#index-terms.join(", ")
     ]
     #v(2pt)
