@@ -2,7 +2,7 @@
 
 This repository provides a simple Typst template for writing your Assignments at UiT (The Arctic University of Tromsø). The template is _supercharged_ with the [typst](https://typst.app/home) language, which is a simple and powerful language for writing scientific documents.
 
-> [!NOTE] 
+> [!NOTE]
 > This is only a template. You have to adapt the template to your current assignment!
 
 ## Installation
@@ -17,7 +17,7 @@ To use this template, you need to have the `typst` language installed on your co
 
 For more information on how to install `typst`, please refer to the [official documentation](https://github.com/typst/typst?tab=readme-ov-file#installation).
 
-## Usage 
+## Usage
 
 ### Set up the assignments metadata
 
@@ -28,7 +28,7 @@ Fill in your assignment details in the `uit_template` function, it should contai
 - Your Index Terms
 - An Abstract
 
-### Build PDFs locally 
+### Build PDFs locally
 
 Once you have installed Typst, you can use it like this:
 
@@ -48,20 +48,19 @@ faster than compiling from scratch each time because Typst has incremental compi
 typst watch main.typ
 ```
 
-### Working in the Typst Web Editort
+### Working in the Typst Web Editor
 
-If you prefer an Overleaf-like experience with autocompletion, preview and (soon)spellchecking, then  the Typst web editor is for you. It allows you to import files directly into a new or existing document.  Here's a step-by-step guide: 
+If you prefer an Overleaf-like experience with autocompletion, preview and (soon)spellchecking, then the Typst web editor is for you. It allows you to import files directly into a new or existing document. Here's a step-by-step guide:
 
 1. Navigate to the [Typst Web Editor](https://typst.app/).
 
 2. Create or Sign in to your Account.
 
-2. Create a new blank document.
+3. Create a new blank document.
 
-3. Click on "File" on the top left menu, then "Upload File".
+4. Click on "File" on the top left menu, then "Upload File".
 
-4. Select all `.typ` and `.bib` files along with the figures (svg and png) provided in this template repository.
+5. Select all `.typ` and `.bib` files along with the figures (svg and png) provided in this template repository.
 
-> [!NOTE] 
+> [!NOTE]
 > You can select multiple files to import at the same time. The editor will import and arrange all the files accordingly. Watch out if your figures are in a directory, the may end up in root.
-
