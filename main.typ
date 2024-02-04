@@ -19,7 +19,14 @@
     department: [IFI],
     organization: [UiT],
     location: [Tromsø, Norway],
-    email: "abc@uit.no",
+    email: "abc123@uit.no",
+  ),
+  (
+    name: "Firstname Middlename(s) Lastname",
+    department: [IFI],
+    organization: [UiT],
+    location: [Tromsø, Norway],
+    email: "def456@uit.no",
   ),),
   index-terms: (
     "Assignment submission",
