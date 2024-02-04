@@ -1,0 +1,6 @@
+# Nix
+.direnv
+result
+
+# Output
+*.pdf
