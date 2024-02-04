@@ -94,7 +94,7 @@ The basic concept of virtual memory is that you map the virtual address the proc
 
 #v(12pt)
 
-Using figures in technical backgrounds is encouraged. Usually you want to have figures/images as scalable vector graphics\(svg),especially for your graphs, but sometimes that is not doable and you can use i.e. portable network graphics\(png) or similar.
+Using figures in technical backgrounds is encouraged. Usually you want to have figures/images as scalable vector graphics\(svg), especially for your graphs, but sometimes that is not doable and you can use i.e. portable network graphics\(png) or similar.
 
 #v(12pt)
 
@@ -126,7 +126,7 @@ While illustrations are good at making your report clearer and look more polishe
 
 Examples of what the design section should cover:
 
-- The interface of the list ADT supports six methods. These are create\_list(), destroy\_list(), add\_list(), remove\_list(), iterate\_list() and sort\_list(). When a list is created, it is provided with a comparator method that is used to handle sorting{\dots}
+- The interface of the list ADT supports six methods. These are ```c create_list()```, ```c destroy_list()```, ```c add_list()```, ```c remove_list()```, ```c iterate_list()``` and ```c sort_list()```. When a list is created, it is provided with a comparator method that is used to handle sorting.
 
 - The Boids simulation consists of a set of entities called Boids, Each boid moves independently according to a set of criteria, specified in three rules. Firstly, boids avoid crashing into obstacles, including other boids. Secondly, boids attempt to maintain the same speed and heading as nearby boids. Finally, all boids attempt to move closer to each other to form a cohesive flock.
 
