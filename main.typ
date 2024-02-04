@@ -22,8 +22,7 @@
   header: [INF-XXXX Assignment X #datetime.today().display()],
   authors: ((
     name: "Firstname Middlename(s) Lastname",
-    department: [IFI],
-    organization: [UiT],
+    organization: [UiT Artic University of Tromsø],
     location: [Tromsø, Norway],
     email: "abc@uit.no",
   ),),
@@ -37,6 +36,7 @@
 )
 
 = Introduction <sec:introduction>
+
 This section should be brief. Describe the assignment and the requirements in
 your own words. Avoid listing the requirements directly.
 
@@ -119,8 +119,8 @@ address space while still ensuring that no other processes can access its data
 
 Using figures in technical backgrounds is encouraged. Usually you want to have
 figures/images as scalable vector graphics\(svg),especially for your graphs, but
-sometimes that is not doable and you can use i.e. portable network graphics\(png)
-or similar. The following snippet shows how to import figures.
+sometimes that is not doable and you can use i.e. portable network
+graphics\(png) or similar. The following snippet shows how to import figures.
 
 #figure(
   image("figures/jetson_nx.png", width: 80%),
@@ -219,6 +219,7 @@ following is an example for how to format a table of results in Typst.
     rowspanx(2)[Classifier],
     colspanx(6)[Precision],
     /* -------------- */
+    /* --- body --- */
     [1],
     [2],
     [3],
@@ -253,6 +254,7 @@ following is an example for how to format a table of results in Typst.
     0.53,
     0.54,
     0.53,
+    /* -------------- */
   ),
   caption: [Precision results of classifiers for different feature sets],
 )
@@ -283,6 +285,3 @@ dealt with, and will result in the node not being able to recover.
 
 Here you sum up the report and reiterate the results. Does not need to be very
 long, a few sentences is fine.
-
-Use $without$`appendix` if you have a single appendix: Do not use $without$`section` anymore after $without$`appendix`, only $without$`section*`. If you have multiple appendixes use $without$`appendices` then use $without$`section` to start each appendix. You must declare a $without$`section` before using any $without$`subsection` or using $without$`label` ($without$`appendices` by itself starts a section numbered zero.)
-
