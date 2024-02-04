@@ -1,6 +1,6 @@
 # assignment-template-typst
 
-This repository provides a simple Typst template for writing your Assignments at UiT (The Arctic University of Tromsø). The template is _supercharged_ with the [typst](https://typst.app/home) language, which is a simple and powerful language for writing scientific documents.
+This repository provides a simple Typst template for writing your Assignments at UiT (The Arctic University of Norway). The template is _supercharged_ with the [typst](https://typst.app/home) language, which is a simple and powerful language for writing scientific documents.
 
 > [!NOTE]
 > This is only a template. You have to adapt the template to your current assignment!
@@ -47,6 +47,13 @@ faster than compiling from scratch each time because Typst has incremental compi
 # Watches source files and recompiles on changes.
 typst watch main.typ
 ```
+
+If the `typstfmt` is installed, then the text can be formatted using:
+
+```console
+typstfmt main.typ
+```
+
 
 ### Working in the Typst Web Editor
 
