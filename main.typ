@@ -69,13 +69,13 @@ The rest of this paper is organized as follows:
 
 *@sec:technical_background* outlines concepts and background information relevant to the rest of the paper.
 
-*@sec:design* discusses results from the topological analysis of the positional data and highlights some potential problems to overcome.
+*@sec:design* is a high-level description of your solution to the assignment.
 
-*@sec:implementation* briefly discusses this project's initial plan and ideas and reasons it did not work.
+*@sec:implementation* goes into a detailed explanation of your implementation that you described in Section *@sec:design.
 
-*@sec:experiments_and_results* concludes and summarizing possible future work.
+*@sec:experiments_and_results* discusses the methodology for your experiments and includes results from your experiments.
 
-*@sec:discussion* The discussion is the most important section in a report, This is where you show that you understand the theory behind the solution, and also a chance to argue the pros and cons of your solution.
+*@sec:discussion* is the most important section in a report; this is where you show that you understand the theory behind your solution and can reflect on it with the choices you made.
 
 *@sec:conclusion* concludes and summarizing possible future work.
 
@@ -94,7 +94,7 @@ The basic concept of virtual memory is that you map the virtual address the proc
 
 #v(12pt)
 
-Using figures in technical backgrounds is encouraged. Usually you want to have figures/images as scalable vector graphics\(svg), especially for your graphs, but sometimes that is not doable and you can use i.e. portable network graphics\(png) or similar.
+Using figures in technical backgrounds is encouraged, if that makes the concept easier to explain. Usually, you want figures/images as scaleable vector graphics\(SVG), especially for your graphs. Sometimes that is not doable, and you can use portable network graphics\(PNG) or similar.
 
 #v(12pt)
 
@@ -112,11 +112,12 @@ The following snippet shows how to import figures.
 
 = Design <sec:design>
 
-This is where you describe how you solved the assignment, at least on paper. Give a high-level view of your design. As a rule of thumb, if you are describing your code, you need to go to a higher abstraction level.
+This is where you describe how you solved the assignment, at least on paper. Give a high-level view of your design. As a rule of thumb, if you find yourself describing code, you need to go to a higher abstraction level.
 
 #v(12pt)
 
-This section is also a good place to put illustrations to enhance the text. There are multiple tools out there to create good illustrations. draw.io is a strong tool that can be run in a browser. For more advanced users there are stronger, free tools such as Yed Graph Editor.
+This section is also a good place to put illustrations to enhance the text. There are multiple tools out there to create good illustrations.
+draw.io is a strong tool that can be run in a browser. There are stronger, free tools, such as Yed Graph Editor, for more advanced users.
 
 #v(12pt)
 
