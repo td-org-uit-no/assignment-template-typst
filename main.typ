@@ -71,7 +71,7 @@ The rest of this paper is organized as follows:
 
 *@sec:design* is a high-level description of your solution to the assignment.
 
-*@sec:implementation* goes into a detailed explanation of your implementation that you described in Section *@sec:design.
+*@sec:implementation* goes into a detailed explanation of your implementation that you described in Section *@sec:design*.
 
 *@sec:experiments_and_results* discusses the methodology for your experiments and includes results from your experiments.
 
