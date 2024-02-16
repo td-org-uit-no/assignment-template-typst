@@ -1,4 +1,6 @@
-# assignment-template-typst
+Assignment Template Typst
+
+[Typst Online Preview](https://typst.app/project/rSexhJ45Kv6nJvd9yI5qOV)
 
 This repository provides a simple Typst template for writing your Assignments at UiT (The Arctic University of Norway). The template is _supercharged_ with the [typst](https://typst.app/home) language, which is a simple and powerful language for writing scientific documents.
 
