@@ -76,6 +76,7 @@ If you prefer an Overleaf-like experience with autocompletion, preview and (soon
 
 Other resources that may be helpful to new and experienced Typsters alike.
 
+- [The Typst Book](https://sitandr.github.io/typst-examples-book/book/basics/index.html)
 - [Typst Guide for LaTeX Users](https://typst.app/docs/guides/guide-for-latex-users/)
 - [Typst Documentation](https://typst.app/docs/)
 
