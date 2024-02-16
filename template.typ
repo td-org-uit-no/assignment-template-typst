@@ -51,6 +51,14 @@
         #set text(8pt)
         979-8-3503-2934-6/23/\$31.00 ©2023 IEEE
       ]
+      else [
+        #set align(center)
+        #set text(10pt)
+        #counter(page).display(
+          "1/1",
+          both: true
+        )
+      ]
     }),
   )
 
