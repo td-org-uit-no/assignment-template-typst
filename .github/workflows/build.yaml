@@ -1,0 +1,17 @@
+name: Build pdf
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  release_pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Compile Typst
+        uses: lvignoli/typst-action@main
+        with:
+          source_file: |
+            main.typ
