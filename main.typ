@@ -7,11 +7,11 @@
 
     While writing this report template, I enjoyed reading Michael Alley's "The Craft of Scientific Writing". I recommend having it by your side when you are stuck writing- it happens to all of us @AlleyMichael2018TCoS.
 
-    #v(12pt)
+    #v(9pt)
 
     Make sure you clean up the template text before submitting your report. ;)
 
-    #v(12pt)
+    #v(9pt)
   ],
   header: [INF-XXXX Assignment X #datetime.today().display()],
   authors: ((
@@ -40,8 +40,6 @@
 = Introduction <sec:introduction>
 This section should be brief. Describe the assignment and the requirements in your own words. Avoid listing the requirements directly.
 
-#v(12pt)
-
 There are many opinions on first person speaking when writing a technical report. In general a:
 
 + First person report is good at:
@@ -53,7 +51,7 @@ There are many opinions on first person speaking when writing a technical report
 
 It's not uncommon to mix these in your reports, and people like Einstein, Feynman, and Curie frequently used both forms in their texts.
 
-#v(12pt)
+#v(9pt)
 
 Here are some examples on how to start your introduction:
 
@@ -62,6 +60,7 @@ Here are some examples on how to start your introduction:
   and tradeoffs of those choices.
 + Boids is a computer model created by Craig Reynolds that simulates the flocking behavior of birds @TanenbaumAndrewS.2024Mos. In this report, we present an implementation of the model using the Python programming language.
 + SQL is a widely used querying language used to process queries into table-based databases. This text details the implementation of a simplified server that implements a subset of the SQL language built over SQLite.
+
 
 == Outline <subsec:outline>
 
@@ -82,7 +81,7 @@ The rest of this paper is organized as follows:
 = Theoretical Background <sec:technical_background>
 This section is where you provide information on the technical aspects of your design. You can usually assume that the theory required to solve the assignment is know to the reader, but if you want to clarify terms or go into detail about specific points in the theory (if you are doing something slightly different, or a detail of it is of notable importance to your implementation), consider writing a few words about it here.
 
-#v(12pt)
+#v(9pt)
 
 We want you to write a short section explaining the most important background information required to read and understand the rest of the report.
 
@@ -92,27 +91,43 @@ We want you to write a short section explaining the most important background in
 
 The basic concept of virtual memory is that you map the virtual address the processes use to a unique physical address in physical memory. This means that two processes can access the same virtual address in their address space but get two different results since the addresses point to different places in the physical memory. This again means that each process can use all of its 32-bit address space while still ensuring that no other processes can access its data @TanenbaumAndrewS.2024Mos.
 
-#v(12pt)
+#v(9pt)
 
 Using figures in technical backgrounds is encouraged, if that makes the concept easier to explain. Usually, you want figures/images as scaleable vector graphics\(SVG), especially for your graphs. Sometimes that is not doable, and you can use portable network graphics\(PNG) or similar.
 
-#v(12pt)
+#v(9pt)
 
 The following snippet shows how to import figures.
 
 #figure(
-  image("figures/jetson_nx.png", width: 89%),
+  image("figures/jetson_nx.png", width: 85%),
   caption: [Block diagram of the Jetson Xavier NX],
 ) <fig:block_diagram>
 
 #figure(
-  image("figures/NVSD_VDD_IN.svg", width: 89%),
+  image("figures/NVSD_VDD_IN.svg", width: 82%),
   caption: [Total power consumption compared between NAS and SD-Card. / _Note_ the NAS-experiment did not complete in time, and the measurements for the NAS is fit to the SD-card measurements],
 ) <fig:local_nas_sd_compare>
 
 = Design <sec:design>
 
-This is where you describe how you solved the assignment, at least on paper. Give a high-level view of your design. As a rule of thumb, if you find yourself describing code, you need to go to a higher abstraction level.
+This is where you describe how you solved the assignment, at least on paper. Give a high-level view of your design.This is where you describe how you solved the assignment, at least on paper. Give a high-level view of your design.
+As a rule of thumb, if you find yourself describing code, you need to go to a higher abstraction level. If you for some reson want to write code you can use the `raw` block as seen in the following example.
+
+```c
+/* Simple copy from src to dest */
+char *strcpy(char *restrict dest,
+		const char *restrict src)
+{
+    char *destorig = dest;
+    for (;; dest++, src++) {
+		char copiedchar = *dest = *src;
+		if (!copiedchar) break;
+    }
+	printf("Strings are green\n");
+    return destorig;
+}
+```
 
 #v(12pt)
 
