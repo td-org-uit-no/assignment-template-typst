@@ -1,4 +1,4 @@
-Assignment Template Typst
+# Assignment Template Typst
 
 [Typst Online Preview](https://typst.app/project/rSexhJ45Kv6nJvd9yI5qOV)
 
