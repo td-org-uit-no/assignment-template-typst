@@ -1,6 +1,6 @@
 {
   # A helpful description of your flake
-  description = "UiT Assignment Template";
+  description = "Typst Assignment Template";
 
   # Flake inputs
   inputs = {
