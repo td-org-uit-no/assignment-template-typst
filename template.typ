@@ -1,32 +1,29 @@
-// This function gets your whole document as its `body` and formats
-// it as an article in the style of the IEEE.
-#let uit_template(
-  // The paper's title.
-  title: [Paper Title],
+// This function gets your whole document as its `body`.
+#let template(
+  // The Assignment's title.
+  title: [Assignment Title],
   // An array of authors. For each author you can specify a name,
   // department, organization, location, and email. Everything but
   // but the name is optional.
   authors: (),
-  // The paper's running header
-  header: [Paper Header],
-  // The paper's abstract. Can be omitted if you don't have one.
+  // The assignment's running header
+  header: [Assignment Header],
+  // The assignment's abstract. Can be omitted if you don't have one.
   abstract: none,
   // A list of index terms to display after the abstract.
   index-terms: (),
   // The article's paper size. Also affects the margins.
-  paper-size: "us-letter",
+  paper-size: "a4",
   // The path to a bibliography file if you want to cite some external
   // works.
   bibliography-file: none,
-  // The paper's content.
+  // The assignments's content.
   body,
 ) = {
   // Set document metadata.
   set document(title: title, author: authors.map(author => author.name))
 
   // Set the body font.
-  // set text(font: "Times New Roman", size: 10pt)
-  // set text(font: "New Computer Modern", size: 10pt)
   set text(font: "STIX Two Text", size: 10pt)
 
   // Configure the page.
@@ -36,30 +33,10 @@
     margin: if paper-size == "a4" {
       (x: 41.5pt, top: 80.51pt, bottom: 89.51pt)
     } else {
-      (
-        x: (50pt / 216mm) * 100%,
-        top: (55pt / 279mm) * 100%,
-        bottom: (64pt / 279mm) * 100%,
-      )
+      (x: (50pt / 216mm) * 100%, top: (55pt / 279mm) * 100%, bottom: (64pt / 279mm) * 100%)
     },
     header: header,
-    // Show copyright only ont the first page
-    footer: locate(loc => {
-      let page-counter = counter(page)
-      if page-counter.at(loc).first() == 1 [
-        #set align(center)
-        #set text(8pt)
-        979-8-3503-2934-6/23/\$31.00 ©2023 IEEE
-      ]
-      else [
-        #set align(center)
-        #set text(10pt)
-        #counter(page).display(
-          "1/1",
-          both: true
-        )
-      ]
-    }),
+    numbering: "1/1",
   )
 
   // Configure equation numbering and spacing.
@@ -92,10 +69,7 @@
   show ref: it => {
     if it.element != none and it.element.func() == math.equation {
       // Override equation references.
-      link(it.element.location(), numbering(
-        it.element.numbering,
-        ..counter(math.equation).at(it.element.location()),
-      ))
+      link(it.element.location(), numbering(it.element.numbering, ..counter(math.equation).at(it.element.location())))
     } else {
       // Other references as usual.
       it
@@ -103,8 +77,8 @@
   }
 
   // Configure Tables
-  // set table(stroke: 0.5pt)
-  // show table: set text(8pt)
+  set table(stroke: 0.5pt)
+  show table: set text(8pt)
 
   // Configure lists.
   set enum(indent: 10pt, body-indent: 9pt)
@@ -157,7 +131,7 @@
     ]
   })
 
-  // Display the paper's title.
+  // Display the assignments's title.
   v(3pt, weak: true)
   align(center, text(22pt, title))
   v(8.35mm, weak: true)
@@ -167,28 +141,24 @@
     let end = calc.min((i + 1) * 4, authors.len())
     let is-last = authors.len() == end
     let slice = authors.slice(i * 4, end)
-    grid(
-      columns: slice.len() * (1fr,),
-      gutter: 12pt,
-      ..slice.map(author => align(center, {
-        text(12pt, author.name)
-        if "department" in author [
-          \ #emph(author.department)
-        ]
-        if "organization" in author [
-          \ #emph(author.organization)
-        ]
-        if "location" in author [
-          \ #author.location
-        ]
-        if "email" in author [
-          \ #link("mailto:" + author.email)
-        ]
-        if "git" in author [
-          \ #author.git
-        ]
-      })),
-    )
+    grid(columns: slice.len() * (1fr,), gutter: 12pt, ..slice.map(author => align(center, {
+      text(12pt, author.name)
+      if "department" in author [
+        \ #emph(author.department)
+      ]
+      if "organization" in author [
+        \ #emph(author.organization)
+      ]
+      if "location" in author [
+        \ #author.location
+      ]
+      if "email" in author [
+        \ #link("mailto:" + author.email)
+      ]
+      if "git" in author [
+        \ #author.git
+      ]
+    })))
 
     if not is-last {
       v(16pt, weak: true)
@@ -215,7 +185,7 @@
     #v(2pt)
   ]
 
-  // Display the paper's contents.
+  // Display the assignments's contents.
   body
 
   // Display bibliography.

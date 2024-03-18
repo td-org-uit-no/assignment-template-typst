@@ -1,7 +1,6 @@
 #import "template.typ": *
-#import "@preview/tablex:0.0.8": tablex, rowspanx, colspanx
-#show: uit_template.with(
-  title: [Assignment template using IEEE-style for Journals and Transactions],
+#show: template.with(
+  title: [Assignment template],
   abstract: [
     This document presents a number of guidelines to use when writing a report for assignments at UiT and may serve as a template for how to write it using Typst for typesetting. The template is meant to give some general tips on what you should and should not be writing in your report. You may move or cut sections and/or subsections depending on the given assignment or your needs.
 
@@ -99,13 +98,15 @@ Using figures in technical backgrounds is encouraged, if that makes the concept 
 
 The following snippet shows how to import figures.
 
+#v(9pt)
+
 #figure(
-  image("figures/jetson_nx.png", width: 85%),
+  image("figures/jetson_nx.png", width: 90%),
   caption: [Block diagram of the Jetson Xavier NX],
 ) <fig:block_diagram>
 
 #figure(
-  image("figures/NVSD_VDD_IN.svg", width: 82%),
+  image("figures/NVSD_VDD_IN.svg", width: 90%),
   caption: [Total power consumption compared between NAS and SD-Card. / _Note_ the NAS-experiment did not complete in time, and the measurements for the NAS is fit to the SD-card measurements],
 ) <fig:local_nas_sd_compare>
 
@@ -171,48 +172,50 @@ You should present the results of your tests here, either using an illustration 
 #v(12pt)
 
 #figure(
-  tablex(
+  table(
     columns: 7,
     align: center + horizon,
     /* --- header --- */
-    rowspanx(2)[Classifier],
-    colspanx(6)[Precision],
+    table.header(
+      table.cell([*Classifier*], rowspan: 2),
+      table.cell([*Precision*], colspan: 6),
+      [1],
+      [2],
+      [3],
+      [1&2],
+      [1&3],
+      [All],
+    ),
     /* -------------- */
     /* --- body --- */
-    [1],
-    [2],
-    [3],
-    [1&2],
-    [1&3],
-    [All],
     [Perceptron],
-    0.78,
-    0.82,
-    0.24,
-    0.81,
-    0.77,
-    0.83,
+    [0.78],
+    [0.82],
+    [0.24],
+    [0.81],
+    [0.77],
+    [0.83],
     [Decision Tree],
-    0.65,
-    0.79,
-    0.56,
-    0.75,
-    0.65,
-    0.73,
+    [0.65],
+    [0.79],
+    [0.56],
+    [0.75],
+    [0.65],
+    [0.73],
     [One-Class SVM],
-    0.74,
-    0.72,
-    0.50,
-    0.80,
-    0.73,
-    0.85,
+    [0.74],
+    [0.72],
+    [0.50],
+    [0.80],
+    [0.73],
+    [0.85],
     [Isolation Forest],
-    0.54,
-    0.51,
-    0.52,
-    0.53,
-    0.54,
-    0.53,
+    [0.54],
+    [0.51],
+    [0.52],
+    [0.53],
+    [0.54],
+    [0.53],
     /* -------------- */
   ),
   caption: [Precision results of classifiers for different feature sets],
