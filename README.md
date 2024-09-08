@@ -34,7 +34,7 @@ Fill in your assignment details in the `uit_template` function, it should contai
 
 Once you have installed Typst, you can use it like this:
 
-```console
+```bash
 # Creates `main.pdf` in working directory.
 typst compile main.typ
 
@@ -45,17 +45,16 @@ typst compile main.typ path/to/output.pdf
 You can also watch source files and automatically recompile on changes. This is
 faster than compiling from scratch each time because Typst has incremental compilation.
 
-```console
+```bash
 # Watches source files and recompiles on changes.
 typst watch main.typ
 ```
 
-If the `typstfmt` is installed, then the text can be formatted using:
+If the `typstyle` is installed, then the text can be formatted using:
 
-```console
-typstfmt main.typ
+```bash
+typstyle main.typ
 ```
-
 
 ### Working in the Typst Web Editor
 

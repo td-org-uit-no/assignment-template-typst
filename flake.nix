@@ -1,35 +1,71 @@
 {
-  description = "Typst Assignment Template";
-
   inputs = {
-    flake-schemas.url = "https://flakehub.com/f/DeterminateSystems/flake-schemas/*.tar.gz";
-
-    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.1.*.tar.gz";
+    nixpkgs = {
+      url = "github:NixOS/nixpkgs/nixos-unstable";
+    };
+    flake-utils = {
+      url = "github:numtide/flake-utils";
+    };
+    pre-commit-hooks = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    typst-packages = {
+      url = "github:typst/packages";
+      flake = false;
+    };
+    typst-nix = {
+      url = "github:misterio77/typst-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.typst-packages.follows = "typst-packages";
+    };
   };
-
-  outputs = { self, flake-schemas, nixpkgs }:
-    let
-      supportedSystems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" "aarch64-linux" ];
-      forEachSupportedSystem = f: nixpkgs.lib.genAttrs supportedSystems (system: f {
+  outputs =
+    { self
+    , nixpkgs
+    , flake-utils
+    , pre-commit-hooks
+    , typst-nix
+    , typst-packages
+    , ...
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
         pkgs = import nixpkgs { inherit system; };
-      });
-    in
-    {
-      schemas = flake-schemas.schemas;
+      in
+      with pkgs; {
+        checks = {
+          pre-commit-check = pre-commit-hooks.lib.${system}.run {
+            src = ./.;
+            hooks = {
+              nixpkgs-fmt.enable = true;
+              typstyle.enable = true;
+            };
+          };
+        };
 
-      devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell {
-          packages = with pkgs; [
-            # Nix formatter
-            nixpkgs-fmt
-            # Typo checker
-            typos
-            # Typst CLI, LSP and Formatter
+        packages = {
+          default = typst-nix.lib.${system}.mkTypstDerivation {
+            name = "assignment-template-typst";
+            src = ./.;
+            mainFile = "main.typ";
+            typstPackages = {
+              preview = "${typst-packages}/packages/preview";
+            };
+          };
+        };
+
+        devShells.default = mkShell {
+          inherit (self.checks.${system}.pre-commit-check) shellHook;
+
+          nativeBuildInputs = [
+            self.checks.${system}.pre-commit-check.enabledPackages
             typst
-            typst-lsp
-            typstfmt
+            typstyle
+            tinymist
           ];
         };
-      });
-    };
+      }
+    );
 }
