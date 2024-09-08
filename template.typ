@@ -69,7 +69,13 @@
   show ref: it => {
     if it.element != none and it.element.func() == math.equation {
       // Override equation references.
-      link(it.element.location(), numbering(it.element.numbering, ..counter(math.equation).at(it.element.location())))
+      link(
+        it.element.location(),
+        numbering(
+          it.element.numbering,
+          ..counter(math.equation).at(it.element.location()),
+        ),
+      )
     } else {
       // Other references as usual.
       it
@@ -101,7 +107,11 @@
       // We don't want to number of the acknowledgment section.
       #let is-ack = it.body in ([Acknowledgment], [Acknowledgement])
       #set align(center)
-      #set text(if is-ack { 10pt } else { 12pt })
+      #set text(if is-ack {
+        10pt
+      } else {
+        12pt
+      })
       #show: smallcaps
       #v(20pt, weak: true)
       #if it.numbering != none and not is-ack {
@@ -141,24 +151,29 @@
     let end = calc.min((i + 1) * 4, authors.len())
     let is-last = authors.len() == end
     let slice = authors.slice(i * 4, end)
-    grid(columns: slice.len() * (1fr,), gutter: 12pt, ..slice.map(author => align(center, {
-      text(12pt, author.name)
-      if "department" in author [
-        \ #emph(author.department)
-      ]
-      if "organization" in author [
-        \ #emph(author.organization)
-      ]
-      if "location" in author [
-        \ #author.location
-      ]
-      if "email" in author [
-        \ #link("mailto:" + author.email)
-      ]
-      if "git" in author [
-        \ #author.git
-      ]
-    })))
+    grid(columns: slice.len() * (
+        1fr,
+      ), gutter: 12pt, ..slice.map(author => align(
+        center,
+        {
+          text(12pt, author.name)
+          if "department" in author [
+            \ #emph(author.department)
+          ]
+          if "organization" in author [
+            \ #emph(author.organization)
+          ]
+          if "location" in author [
+            \ #author.location
+          ]
+          if "email" in author [
+            \ #link("mailto:" + author.email)
+          ]
+          if "git" in author [
+            \ #author.git
+          ]
+        },
+      )))
 
     if not is-last {
       v(16pt, weak: true)
@@ -191,6 +206,10 @@
   // Display bibliography.
   if bibliography-file != none {
     show bibliography: set text(8pt)
-    bibliography(bibliography-file, title: text(10pt)[References], style: "ieee")
+    bibliography(
+      bibliography-file,
+      title: text(10pt)[References],
+      style: "ieee",
+    )
   }
 }

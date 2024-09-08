@@ -13,20 +13,22 @@
     #v(9pt)
   ],
   header: [INF-XXXX Assignment X #datetime.today().display()],
-  authors: ((
-    name: "Firstname Middlename(s) Lastname",
-    organization: [UiT Arctic University of Norway],
-    location: [Tromsø, Norway],
-    email: "abc123@uit.no",
-    git: "abc",
+  authors: (
+    (
+      name: "Firstname Middlename(s) Lastname",
+      organization: [UiT Arctic University of Norway],
+      location: [Tromsø, Norway],
+      email: "abc123@uit.no",
+      git: "abc",
+    ),
+    (
+      name: "Firstname Middlename(s) Lastname",
+      organization: [UiT Arctic University of Norway],
+      location: [Tromsø, Norway],
+      email: "def456@uit.no",
+      git: "def",
+    ),
   ),
-  (
-    name: "Firstname Middlename(s) Lastname",
-    organization: [UiT Arctic University of Norway],
-    location: [Tromsø, Norway],
-    email: "def456@uit.no",
-    git: "def",
-  ),),
   index-terms: (
     "Assignment submission",
     "Scientific writing",
@@ -37,6 +39,7 @@
 )
 
 = Introduction <sec:introduction>
+
 This section should be brief. Describe the assignment and the requirements in your own words. Avoid listing the requirements directly.
 
 There are many opinions on first person speaking when writing a technical report. In general a:
@@ -78,6 +81,7 @@ The rest of this paper is organized as follows:
 *@sec:conclusion* concludes and summarizing possible future work.
 
 = Theoretical Background <sec:technical_background>
+
 This section is where you provide information on the technical aspects of your design. You can usually assume that the theory required to solve the assignment is know to the reader, but if you want to clarify terms or go into detail about specific points in the theory (if you are doing something slightly different, or a detail of it is of notable importance to your implementation), consider writing a few words about it here.
 
 #v(9pt)

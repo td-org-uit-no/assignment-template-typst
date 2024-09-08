@@ -4,3 +4,6 @@ result
 
 # Output
 *.pdf
+
+# Git Hook
+.pre-commit-config.yaml
