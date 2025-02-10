@@ -15,7 +15,7 @@ jobs:
         with:
           fetch-depth: '0'
 
-      - uses: typst-community/setup-typst@v3
+      - uses: typst-community/setup-typst@v4
       - run: typst compile ./main.typ main.pdf
 
       - name: Upload Release Asset - Assignment
