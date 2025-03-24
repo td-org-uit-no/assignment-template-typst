@@ -33,7 +33,11 @@
     margin: if paper-size == "a4" {
       (x: 41.5pt, top: 80.51pt, bottom: 89.51pt)
     } else {
-      (x: (50pt / 216mm) * 100%, top: (55pt / 279mm) * 100%, bottom: (64pt / 279mm) * 100%)
+      (
+        x: (50pt / 216mm) * 100%,
+        top: (55pt / 279mm) * 100%,
+        bottom: (64pt / 279mm) * 100%,
+      )
     },
     header: header,
     numbering: "1/1",
@@ -92,8 +96,9 @@
 
   // Configure headings.
   set heading(numbering: "I.A.1.")
-  show heading: it => locate(loc => {
+  show heading: it => {
     // Find out the final number of the heading counter.
+    let loc = it.location()
     let levels = counter(heading).at(loc)
     let deepest = if levels != () {
       levels.last()
@@ -105,7 +110,7 @@
     if it.level == 1 [
       // First-level headings are centered smallcaps.
       // We don't want to number of the acknowledgment section.
-      #let is-ack = it.body in ([Acknowledgment], [Acknowledgement])
+      #let is-ack = it.body in ([Acknowledgment], [Acknowledgment])
       #set align(center)
       #set text(if is-ack {
         10pt
@@ -139,7 +144,7 @@
       }
       _#(it.body):_
     ]
-  })
+  }
 
   // Display the assignments's title.
   v(3pt, weak: true)
@@ -151,9 +156,10 @@
     let end = calc.min((i + 1) * 4, authors.len())
     let is-last = authors.len() == end
     let slice = authors.slice(i * 4, end)
-    grid(columns: slice.len() * (
-        1fr,
-      ), gutter: 12pt, ..slice.map(author => align(
+    grid(columns: slice.len()
+        * (
+          1fr,
+        ), gutter: 12pt, ..slice.map(author => align(
         center,
         {
           text(12pt, author.name)
@@ -183,8 +189,7 @@
 
   // Start two column mode and configure paragraph properties.
   show: columns.with(2, gutter: 12pt)
-  set par(justify: true, first-line-indent: 1em)
-  show par: set block(spacing: 0.65em)
+  set par(justify: true, first-line-indent: 1em, spacing: 0.65em)
 
   // Display abstract and index terms.
   if abstract != none [
