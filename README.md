@@ -2,7 +2,7 @@
 
 [Typst Online Preview](https://typst.app/project/rSexhJ45Kv6nJvd9yI5qOV)
 
-This repository provides a simple Typst template for writing your Assignments at UiT (The Arctic University of Norway). The template is _supercharged_ with the [typst](https://typst.app/home) language, which is a simple and powerful language for writing scientific documents.
+This repository provides a simple Typst template for writing your Assignments at UiT (The Arctic University of Norway). The template is _supercharged_ with the [Typst](https://typst.app/home) language, which is a simple and powerful language for writing scientific documents.
 
 > [!NOTE]
 > This is only a template. You have to adapt the template to your current assignment!
@@ -68,16 +68,15 @@ If you prefer an Overleaf-like experience with autocompletion, preview and (soon
 
 4. Click on "File" on the top left menu, then "Upload File".
 
-5. Select all `.typ` and `.bib` files along with the figures (svg and png) provided in this template repository.
+5. Select all `.typ` and `.bib` files along with the figures (SVG and PNG) provided in this template repository.
 
 > [!NOTE]
 > You can select multiple files to import at the same time. The editor will import and arrange all the files accordingly. Watch out if your figures are in a directory, the may end up in root.
 
-# Resources 
+# Resources
 
 Other resources that may be helpful to new and experienced Typsters alike.
 
 - [The Typst Book](https://sitandr.github.io/typst-examples-book/book/basics/index.html)
 - [Typst Guide for LaTeX Users](https://typst.app/docs/guides/guide-for-latex-users/)
 - [Typst Documentation](https://typst.app/docs/)
-
