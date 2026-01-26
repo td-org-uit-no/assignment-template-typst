@@ -1,10 +1,14 @@
-name: Build pdf
+# yaml-language-server: $schema=https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/github-workflow.json
+name: Build
 
 on:
   pull_request:
 
 permissions:
-  contents: read
+  contents: write
+
+env:
+  GIT_BRANCH: main
 
 jobs:
   build_pdf:
@@ -12,18 +16,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      - uses: samueldr/lix-gha-installer-action@v2025-10-27
+      - uses: DeterminateSystems/magic-nix-cache-action@v13
         with:
-          fetch-depth: '0'
-
-      - uses: typst-community/setup-typst@v4
-      - run: typst compile ./main.typ main.pdf
-
-      - name: Upload Release Asset - Assignment
-        id: upload
-        uses: actions/upload-artifact@v6
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          diagnostic-endpoint: ""
+      - name: Build Assignment
+        run: nix -Lv build
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
         with:
-          path: ./main.pdf
-          name: main.pdf
-          retention-days: 5
+          tag_name: ${{ github.ref_name }}
+          name: Version ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+          files: |
+            result/main.pdf
