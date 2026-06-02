@@ -17,7 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - uses: samueldr/lix-gha-installer-action@v2025-10-27
-      - uses: DeterminateSystems/magic-nix-cache-action@v13
+      - uses: DeterminateSystems/magic-nix-cache-action@v14
         with:
           diagnostic-endpoint: ""
       - name: Build Assignment
